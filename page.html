@@ -8,8 +8,18 @@
             {
                 $('input,select').change(function ()
                 {
-                    id = this.id + "_value";
-                    document.getElementById(id).innerHTML = $(this).val();
+                    work(this);
+                });
+				
+				$('input,select').each(function ()
+                {
+                    work(this);
+                });
+				
+				function work(el)
+				{
+					id = el.id + "_value";
+                    document.getElementById(id).innerHTML = $(el).val();
 
                     makeRequest(
                         $('#la').val(),
@@ -19,7 +29,7 @@
                         $('#Nk').val(),
                         $('#Np').val(),
                         $('#dir').val());
-                });
+				}
             });
 
             function makeRequest(la, mu, nu, N, Nk, Np, dir)
@@ -51,32 +61,32 @@
         <table>
             <tr>
                 <td>la:</td>
-                <td><input type="range" id="la" min="0.01" max="10"></td>
+                <td><input type="range" id="la" min="0.01" max="10" step="0.01" value="1"></td>
                 <td><span id="la_value" /></td>            
             </tr>
             <tr>
                 <td>mu:</td>
-                <td><input type="range" id="mu" min="0.01" max="10"></td>
+                <td><input type="range" id="mu" min="0.01" max="10" step="0.01" value="1"></td>
                 <td><span id="mu_value" /></td>            
             </tr>
             <tr>
                 <td>nu:</td>
-                <td><input type="range" id="nu" min="0.01" max="10"></td>
+                <td><input type="range" id="nu" min="0.01" max="10" step="0.01" value="1"></td>
                 <td><span id="nu_value" /></td>            
             </tr>
             <tr>
                 <td>N:</td>
-                <td><input type="range" id="N" min="1" max="100"></td>
+                <td><input type="range" id="N" min="1" max="100" value="1"></td>
                 <td><span id="N_value" /></td>            
             </tr>
             <tr>
                 <td>Nk:</td>
-                <td><input type="range" id="Nk" min="1" max="100"></td>
+                <td><input type="range" id="Nk" min="1" max="100" value="1"></td>
                 <td><span id="Nk_value" /></td>            
             </tr>
             <tr>
                 <td>Np:</td>
-                <td><input type="range" id="Np" min="1" max="100"></td>
+                <td><input type="range" id="Np" min="1" max="100" value="1"></td>
                 <td><span id="Np_value" /></td>            
             </tr>
             <tr>
