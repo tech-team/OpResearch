@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>E/E/E model solver</title>
+
+        <script src="jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function ()
+            {
+                $('input,select').change(function ()
+                {
+                    id = this.id + "_value";
+                    document.getElementById(id).innerHTML = $(this).val();
+
+                    makeRequest(
+                        $('#la').val(),
+                        $('#mu').val(),
+                        $('#nu').val(),
+                        $('#N').val(),
+                        $('#Nk').val(),
+                        $('#Np').val(),
+                        $('#dir').val());
+                });
+            });
+
+            function makeRequest(la, mu, nu, N, Nk, Np, dir)
+            {
+                $.ajax({
+                    method: 'GET',
+                    url: 'http://localhost:9999/data',
+                    data: {
+                        la: la,
+                        mu: mu,
+                        nu: nu,
+                        N: N,
+                        Nk: Nk,
+                        Np: Np,
+                        dir: dir
+                    },
+                    success: function (data)
+                    {
+                        $('#N_avg').text(data.N_avg);
+                        $('#t_solve').text(data.solve_time);
+                        $('#p').text(data.p);
+                    }
+                });
+            }
+
+        </script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>la:</td>
+                <td><input type="range" id="la" min="0.01" max="10"></td>
+                <td><span id="la_value" /></td>            
+            </tr>
+            <tr>
+                <td>mu:</td>
+                <td><input type="range" id="mu" min="0.01" max="10"></td>
+                <td><span id="mu_value" /></td>            
+            </tr>
+            <tr>
+                <td>nu:</td>
+                <td><input type="range" id="nu" min="0.01" max="10"></td>
+                <td><span id="nu_value" /></td>            
+            </tr>
+            <tr>
+                <td>N:</td>
+                <td><input type="range" id="N" min="1" max="100"></td>
+                <td><span id="N_value" /></td>            
+            </tr>
+            <tr>
+                <td>Nk:</td>
+                <td><input type="range" id="Nk" min="1" max="100"></td>
+                <td><span id="Nk_value" /></td>            
+            </tr>
+            <tr>
+                <td>Np:</td>
+                <td><input type="range" id="Np" min="1" max="100"></td>
+                <td><span id="Np_value" /></td>            
+            </tr>
+            <tr>
+                <td>dir:</td>
+                <td>
+                    <select id="dir">
+                        <option>left</option>
+                        <option>right</option>
+                    </select>
+                </td>
+                <td><span id="dir_value" /></td>            
+            </tr>
+        </table>
+
+        <br />
+        <br />
+
+        <table id="results">
+            <tr>
+                <td>&lt;N&gt;:</td>
+                <td><span id="N_avg" /></td>
+            </tr>
+            <tr>
+                <td>t<sub>solve</sub>:</td>
+                <td><span id="t_solve" /></td>
+            </tr>
+            <tr>
+                <td>p:</td>
+                <td><span id="p" /></td>
+            </tr>
+        </table>
+    </body>
+</html>
