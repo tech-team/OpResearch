@@ -1,12 +1,5 @@
 from pprint import pprint
-
-
-def _mu_i(mu, Nk, N_avg, i):
-    return mu * min(Nk, N_avg - i)
-
-
-def _nu_i(nu, Np, i):
-    return nu * min(Np, i)
+from model2_common import nu_i, mu_i
 
 
 def _compute_coefs(mu, nu, N_avg, Nk, Np):
@@ -14,13 +7,14 @@ def _compute_coefs(mu, nu, N_avg, Nk, Np):
     addings = [1]
 
     for i in xrange(N_avg, 0, -1):
-        nu_i = _nu_i(nu, Np, i)
-        mu_i = _mu_i(mu, Nk, N_avg, i-1)
+        nu__i = nu_i(nu, Np, i)
+        mu__i = mu_i(mu, Nk, N_avg, i-1)
 
-        coefs.append(nu_i / mu_i)
+        coefs.append(nu__i / mu__i)
         addings.append(coefs[-1] * addings[-1])
 
     return coefs, addings
+
 
 def solve(mu, nu, N_avg, Nk, Np):
     """

@@ -1,11 +1,5 @@
 from pprint import pprint
-
-def _mu_i(mu, Nk, N_avg, i):
-    return mu * min(Nk, N_avg - i)
-
-
-def _nu_i(nu, Np, i):
-    return nu * min(Np, i)
+from model2_common import mu_i, nu_i
 
 
 def solve(mu, nu, N_avg, Nk, Np):
@@ -29,8 +23,8 @@ def solve(mu, nu, N_avg, Nk, Np):
 
     sum = 1.0
     for i in range(1, N_avg+1):
-        mu_accumulated *= _mu_i(mu, Nk, N_avg, i-1)
-        nu_accumulated *= _nu_i(nu, Np, i)
+        mu_accumulated *= mu_i(mu, Nk, N_avg, i-1)
+        nu_accumulated *= nu_i(nu, Np, i)
 
         p[i] = mu_accumulated / nu_accumulated
         sum += p[i]
