@@ -3,10 +3,10 @@
 def solve(mu, nu, N_avg):
     """
 
-    :param mu: lambda
+    :param mu: mu
     :type mu: float
 
-    :param nu: nu vector
+    :param nu: nu
     :type nu: float
 
     :param N_avg: N
