@@ -50,7 +50,8 @@
                     {
                         $('#N_avg').text(data.N_avg);
                         $('#t_solve').text(data.solve_time);
-                        $('#p').text(data.p);
+                        $('#p').empty();
+                        $('#p').html(data.p);
                     }
                 });
             }
@@ -115,7 +116,7 @@
             </tr>
             <tr>
                 <td>p:</td>
-                <td><span id="p" /></td>
+                <td><p id="p" ></p></td>
             </tr>
         </table>
     </body>
