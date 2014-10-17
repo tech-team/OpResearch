@@ -9,7 +9,7 @@ import model2_right
 def print_p(p):
     s = ''
     for i in xrange(0, len(p)):
-        s += ('p[%d] = %f' % (i, p[i])) + ' <br> '
+        s += ('p[%d] = %.30f' % (i, p[i])) + ' <br> '
     return s
 
 
