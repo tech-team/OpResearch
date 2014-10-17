@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>E/E/E model solver</title>
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/bootstrap-slider.min.css" />
+        <link rel="stylesheet" href="/css/styles.css" />
+
+        <script type="application/javascript" src="/js/jquery.js"></script>
+        <script type="application/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="application/javascript" src="/js/bootstrap-slider.min.js"></script>
+        <script type="application/javascript" src="/js/script.js"></script>
+    </head>
+    <body>
+        <div style="float:left;">
+		<h3>Input values:</h3>
+            <table class="table">
+                <tr>
+                    <td><strong>la:</strong></td>
+                    <!--<td><input type="range"  class="param_input" id="la" min="0.01" max="10" step="0.01" value="1"></td>-->
+                    <td><input id="la" class="param_input" data-slider-id='slider_la' type="text" data-slider-min="0.01" data-slider-max="10" data-slider-step="0.01" data-slider-value="1"/></td>
+                    <td class="value_column"><span id="la_value" /></td>
+                    <td><button class="plot_button btn btn-info" id="plot_la">Plot</button></td>
+                </tr>
+                <tr>
+                    <td><strong>mu:</strong></td>
+                    <!--<td><input type="range"  class="param_input" id="mu" min="0.01" max="10" step="0.01" value="1"></td>-->
+                    <td><input id="mu" class="param_input" data-slider-id='slider_mu' type="text" data-slider-min="0.01" data-slider-max="10" data-slider-step="0.01" data-slider-value="1"/></td>
+                    <td class="value_column"><span id="mu_value" /></td>
+                    <td><button class="plot_button btn btn-info" id="plot_mu">Plot</button></td>
+                </tr>
+                <tr>
+                    <td><strong>nu:</strong></td>
+                    <!--<td><input type="range"  class="param_input" id="nu" min="0.01" max="10" step="0.01" value="1"></td>-->
+                    <td><input id="nu" class="param_input" data-slider-id='slider_nu' type="text" data-slider-min="0.01" data-slider-max="10" data-slider-step="0.01" data-slider-value="1"/></td>
+                    <td class="value_column"><span id="nu_value" /></td>
+                    <td><button class="plot_button btn btn-info" id="plot_nu">Plot</button></td>
+                </tr>
+                <tr>
+                    <td><strong>N:</strong></td>
+                    <!--<td><input type="range"  class="param_input" id="N" min="1" max="100" value="1"></td>-->
+                    <td><input id="N" class="param_input" data-slider-id='slider_N' type="text" data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-value="1"/></td>
+                    <td class="value_column"><span id="N_value" /></td>
+                    <td><button class="plot_button btn btn-info" id="plot_N">Plot</button></td>
+                </tr>
+                <tr>
+                    <td><strong>Nk:</strong></td>
+                    <!--<td><input type="range"  class="param_input" id="Nk" min="1" max="100" value="1"></td>-->
+                    <td><input id="Nk" class="param_input" data-slider-id='slider_Nk' type="text" data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-value="1"/></td>
+                    <td class="value_column"><span id="Nk_value" /></td>
+                    <td><button class="plot_button btn btn-info" id="plot_Nk">Plot</button></td>
+                </tr>
+                <tr>
+                    <td><strong>Np:</strong></td>
+                    <!--<td><input type="range"  class="param_input" id="Np" min="1" max="100" value="1"></td>-->
+                    <td><input id="Np" class="param_input" data-slider-id='slider_Np' type="text" data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-value="1"/></td>
+                    <td class="value_column"><span id="Np_value" /></td>
+                    <td><button class="plot_button btn btn-info" id="plot_Np">Plot</button></td>
+                </tr>
+                <tr>
+                    <td><strong>dir:</strong></td>
+                    <td>
+                        <select class="param_input_select form-control" id="dir">
+                            <option>left</option>
+                            <option>right</option>
+                        </select>
+                    </td>
+                    <td class="value_column"><span id="dir_value" /></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+
+		<div id="results" style="float:left; margin-left: 200px;">
+			<h3>Results:</h3>
+			<table class="table">
+				<tr>
+					<td><strong>&lt;N&gt;:</strong></td>
+					<td><span id="N_avg" /></td>
+				</tr>
+				<tr>
+					<td><strong>t<sub>solve</sub>:</strong></td>
+					<td><span id="t_solve" /></td>
+				</tr>
+				<tr>
+					<td><strong>p:</strong></td>
+					<td><p id="p" ></p></td>
+				</tr>
+			</table>
+		</div>
+    </body>
+</html>

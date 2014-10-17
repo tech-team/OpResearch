@@ -1,0 +1,11 @@
+.value_column {
+    width: 3em;
+}
+
+#dir_value {
+    display: none;
+}
+
+tr {
+    vertical-align: middle;
+}
