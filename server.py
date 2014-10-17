@@ -35,7 +35,7 @@ class DataHandler(tornado.web.RequestHandler):
         self.finish()
 
 application = tornado.web.Application([
-    (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': '/home/igor/Projects/python/OpResearch'}),
+    (r'/static/(.*)', tornado.web.StaticFileHandler, {'path': './html'}),
     (r"/data", DataHandler),
 
 ])
